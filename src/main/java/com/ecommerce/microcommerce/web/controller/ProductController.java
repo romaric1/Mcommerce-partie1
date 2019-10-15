@@ -120,4 +120,11 @@ public class ProductController {
         produitEtMargeTrie.putAll(produitEtMarge);
         return produitEtMargeTrie;
     }
+
+    //Trie par ordre alphabétique la liste des produits
+    @GetMapping(value = "/aplhaProduits")
+    public List<Product> trierProduitsParOrdreAlphabetique() {
+
+        return productDao.findByOrderByNom();
+    }
 }
