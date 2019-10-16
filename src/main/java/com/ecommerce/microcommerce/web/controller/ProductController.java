@@ -69,7 +69,7 @@ public class ProductController {
 
     public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {
 
-        if (product.getPrix()==0)
+        if (product.getPrix() == 0)
             throw new ProduitGratuitException("Il n'est pas possible d'enregistrer un produit gratuit");
         Product productAdded = productDao.save(product);
 
@@ -125,7 +125,7 @@ public class ProductController {
     }
 
     //Trie par ordre alphabétique la liste des produits
-    @GetMapping(value = "/aplhaProduits")
+    @GetMapping(value = "/alphaProduits")
     public List<Product> trierProduitsParOrdreAlphabetique() {
 
         return productDao.findByOrderByNom();
